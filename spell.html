@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reconocimiento de Voz</title>
+</head>
+<body>
+    <button id="startButton">Iniciar Captura de Audio</button>
+    <button id="stopButton" disabled>Detener Captura de Audio</button>
+    <div id="transcription"></div>
+    <audio id="audioElement" controls></audio>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const transcriptionDiv = document.getElementById('transcription');
+        const audioElement = document.getElementById('audioElement'); // Declarar audioElement aquí
+        let mediaRecorder;
+        let audioChunks = [];
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(function (stream) {
+                    mediaRecorder = new MediaRecorder(stream);
+
+                    mediaRecorder.ondataavailable = function (event) {
+                        if (event.data.size > 0) {
+                            audioChunks.push(event.data);
+                        }
+                    };
+
+                    mediaRecorder.onstop = function () {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                        const audioUrl = URL.createObjectURL(audioBlob);
+
+                        startButton.disabled = false;
+                        stopButton.disabled = true;
+
+                        audioElement.src = audioUrl;
+                        audioElement.play(); // Reproducir el audio
+
+                        // Mostrar el texto reconocido en el elemento "transcription"
+                        const recognition = new webkitSpeechRecognition();
+                        recognition.onresult = function (event) {
+                            const result = event.results[0][0].transcript;
+                            transcriptionDiv.textContent = result;
+                        };
+
+                        recognition.start();
+                    };
+
+                    startButton.addEventListener('click', function () {
+                        mediaRecorder.start();
+                        startButton.disabled = true;
+                        stopButton.disabled = false;
+                    });
+
+                    stopButton.addEventListener('click', function () {
+                        mediaRecorder.stop();
+                    });
+                })
+                .catch(function (error) {
+                    console.error('Error al acceder al micrófono:', error);
+                });
+        } else {
+            console.error('El navegador no admite la API MediaStream');
+        }
+    </script>
+</body>
+</html>

@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Reconocimiento de Voz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style/index.css" rel="stylesheet" />
+    <script src="scripts/spell.js" async></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+
 </head>
+
 <body>
-    <button id="startButton">Iniciar Captura de Audio</button>
-    <button id="stopButton" disabled>Detener Captura de Audio</button>
-    <div id="transcription"></div>
-    <audio id="audioElement" controls></audio>
+    <div class="h-screen flex flex-col  bg-gradient-to-t from-indigo-500 via-indigo-700 to-blue-900 overflow-hidden">
+        <header class="min-h-[20%] flex flex-col justify-center items-center">
+            <h1 class="text-3xl font-bold text-white">English for work</h1>
+            <!-- <p class="text-lg text-gray-900">roulette.</p> -->
+        </header>
 
-    <script>
-        const startButton = document.getElementById('startButton');
-        const stopButton = document.getElementById('stopButton');
-        const transcriptionDiv = document.getElementById('transcription');
-        const audioElement = document.getElementById('audioElement'); // Declarar audioElement aquí
-        let mediaRecorder;
-        let audioChunks = [];
+        <section class="flex w-screen h-[70%] flex-grow items-center">
+            <div class="w-[30%] h-[90%] flex items-center">
+                <img src="imgs/ruleta.png" class="max-h-[90vh] " />
+            </div>
+            <div class="w-[70%] flex h-[100%]">
+                <div class="flex flex-col gap-10 w-[100%] items-center">
+                    <h2 class="text-3xl font-bold text-white text-center">Spelling</h2>
+                    <div id="word" class="w-[100%]"></div>
+                    <div class="flex flex-wrap gap-10 overflow-auto h-[100%] w-[100%] pt-10 flex-col"
+                        id="container-cards">
+                        <div class="flex gap-10 items-center">
+                            <p class="text-white text-lg">Your answer: </p>
+                            <p id="transcription" class="text-3xl  text-white"></p>
+                            <div id="verify"
+                                class="flex justify-center items-center rounded-full text-white h-[25px] w-[25px]">
 
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(function (stream) {
-                    mediaRecorder = new MediaRecorder(stream);
+                            </div>
+                        </div>
 
-                    mediaRecorder.ondataavailable = function (event) {
-                        if (event.data.size > 0) {
-                            audioChunks.push(event.data);
-                        }
-                    };
+                        <div class="flex gap-10">
+                            <button id="startButton"
+                                class=" rounded-full h-[50px] p-4 bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+                                <i id="micIcon" class="fas fa-microphone"></i>
+                                <span id="buttonText">Iniciar Captura de Audio</span>
+                            </button>
+                            <audio id="audioElement" controls></audio>
 
-                    mediaRecorder.onstop = function () {
-                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                        const audioUrl = URL.createObjectURL(audioBlob);
+                            
 
-                        startButton.disabled = false;
-                        stopButton.disabled = true;
+                        </div>
+                        <a href="/index.html" class="text-center rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded inline-block w-[200px]"  >Back</a>
 
-                        audioElement.src = audioUrl;
-                        audioElement.play(); // Reproducir el audio
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-                        // Mostrar el texto reconocido en el elemento "transcription"
-                        const recognition = new webkitSpeechRecognition();
-                        recognition.onresult = function (event) {
-                            const result = event.results[0][0].transcript;
-                            transcriptionDiv.textContent = result;
-                        };
-
-                        recognition.start();
-                    };
-
-                    startButton.addEventListener('click', function () {
-                        mediaRecorder.start();
-                        startButton.disabled = true;
-                        stopButton.disabled = false;
-                    });
-
-                    stopButton.addEventListener('click', function () {
-                        mediaRecorder.stop();
-                    });
-                })
-                .catch(function (error) {
-                    console.error('Error al acceder al micrófono:', error);
-                });
-        } else {
-            console.error('El navegador no admite la API MediaStream');
-        }
-    </script>
 </body>
+
 </html>

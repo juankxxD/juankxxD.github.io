@@ -1,28 +1,28 @@
 const question = [
     {
-        question: 'my favorite color ___ red',
-        answers: ['A. is', 'B. this', 'C. are', 'D. am'],
-        correctAnswer: 'is',
+        question: 'Which is the correct definition of the word "benevolent"?',
+        answers: ['A. Sad', 'B. Kind and generous', 'C. Fast', 'D. Warm'],
+        correctAnswer: 'Kind and generous',
     },
     {
-        question: 'She ___ going to the store.',
-        answers: ['A. is', 'B. this', 'C. are', 'D. am'],
-        correctAnswer: 'is',
+        question: 'Choose the word that is a synonym for "happy"',
+        answers: ['A. Angry', 'B. Joyful', 'C. Confused', 'D. Sad'],
+        correctAnswer: 'Joyful',
     },
     {
-        question: `I haven't seen him __________`,
-        answers: ['A. from ages', 'B. since ages', 'C. for ages', 'D. by ages'],
-        correctAnswer: 'for ages',
+        question: `What is the correct translation of the word "elephant" to Spanish?`,
+        answers: ['A. Elefante', 'B. Elección', 'C. Eléctrico', 'D. Elemento'],
+        correctAnswer: 'Elefante',
     },
     {
-        question: 'my mother bought a new book, this is ___ book.',
-        answers: ['A. his', 'B. her', 'C. him', 'D. hers'],
-        correctAnswer: 'her',
+        question: 'Select the word that is an antonym of "small"',
+        answers: ['A. Little', 'B. Tiny', 'C. Big', 'D. Miniature'],
+        correctAnswer: 'Big',
     },
     {
-        question: `They ___ arrive late if they don't leave now.`,
-        answers: ['A. will', 'B. would'],
-        correctAnswer: 'will',
+        question: `What is the word used to describe someone who is an expert in bird observation?`,
+        answers: ['A. Botanist', 'B. Astronomer', 'C. Ornithologist', 'D. Geologist'],
+        correctAnswer: 'Ornithologist',
     },
 ];
 

@@ -3,6 +3,7 @@ const dataInitial = [
     {title: 'Grammar', description: 'Practica la escritura de las frases', src: 'imgs/grammar.jpg', url: '/grammar.html', color: 'red'},
     {title: 'Pronunciation', description: 'Practica la pronunciación de palabras y los sonidos del idioma de manera correcta y comprensible ', src: 'imgs/pronunciation.jpg', url: '/pronunciation.html', color: 'yellow'},
     {title: 'Vocabulary', description: 'Practica palabras en ingles en sus diferentes tiempos', src: 'imgs/vocabulary.jpg', url: '/vocabulary.html', color: 'green'},
+    {title: 'Listening', description: 'Practica escuchando oraciones para entrenar tu oido', src: 'imgs/listening.jpg', url: '/listening.html', color: 'purple'},
 ]
 
 

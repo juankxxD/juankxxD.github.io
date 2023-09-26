@@ -8,7 +8,7 @@ const dataInitial = [
 
 
 const container = document.getElementById('container-cards');
-
+const modal = document.getElementById('modal');
 dataInitial.forEach((data) => {
     
     const card = document.createElement('a');
@@ -36,4 +36,72 @@ dataInitial.forEach((data) => {
                               container.appendChild(card);
 })
 
+// Verificar localStorage
+if (localStorage.getItem("user")) {
+  // Si la clave existe, muestra el valor en la consola
+  const miDato = localStorage.getItem("user");
+  modal.classList.add('hidden')
+  console.log( JSON.parse(miDato));
+} else {
+  // Si la clave no existe, muestra un mensaje de que no hay datos
+  console.log("No hay datos en localStorage con la clave 'miDato'");
+}
+// modal
+const radioButtons = document.querySelectorAll('input[name="team"]');
+const inputName = document.getElementById('input-name');
 
+
+const dataUser = {name: '', img: '', team: ''};
+function getImageSrc(element) {
+  const elementosSeleccionados = document.querySelectorAll('.selected');
+
+  // Eliminar la clase "selected" de todos los elementos seleccionados previamente
+  elementosSeleccionados.forEach((elem) => {
+      elem.classList.remove('selected');
+  });
+
+  // Agregar la clase "selected" al elemento actual
+  element.classList.add('selected');
+  // Obtiene la URL de la imagen desde el elemento img dentro del div clicado
+  const imgElement = element.querySelector('img');
+  const imageUrl = imgElement.src;
+  
+  // Hacer algo con la URL de la imagen, como mostrarla en la consola
+  const partes = imageUrl.split("/"); // Dividir la URL en partes usando "/"
+const ultimaParte = partes[partes.length - 1]; 
+  console.log("URL de la imagen:", ultimaParte);
+  dataUser.img = ultimaParte
+  console.log(dataUser)
+  validatedButton();
+  // Puedes realizar otras acciones con la URL de la imagen aquí
+}
+
+const buttonUser = document.getElementById('button-user');
+const validatedButton = () => {
+  if(dataUser.img !== '' &&  dataUser.name !== '' && dataUser.team !== '') {
+    buttonUser.removeAttribute('disabled');
+  } else {
+    buttonUser.disabled = true;
+  }
+}
+
+
+radioButtons.forEach((radioButton) => {
+  radioButton.addEventListener('change', function() {
+      // Verifica cuál radio button está seleccionado y obtén su valor
+      if (radioButton.checked) {
+        dataUser.team = radioButton.value;
+      }
+      validatedButton();
+  });
+});
+
+inputName.addEventListener('change', function(e) {
+  console.log(e.target.value);
+  dataUser.name = e.target.value;
+  validatedButton()
+})
+
+// buttonUser.addEventListener('click', function() {
+//   sendData
+// })

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="scripts/result.js" type="module" async></script>
+</head>
+
+<body>
+    <div class="h-screen flex flex-col bg-gradient-to-t from-indigo-500 via-indigo-700 to-blue-900 justify-center items-center">
+
+        <div class="relative overflow-x-auto sm:rounded-lg h-[60%] w-[80%] flex justify-center items-center">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 shadow-md">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Icon
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Team
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Score
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+        <div class="flex items-center h-[30%] w-[80%] justify-end">
+            <a href="/index.html" class="w-[120px] mt-3 inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0">
+                Back</a>
+        </div>
+
+    </div>
+</body>
+
+</html>

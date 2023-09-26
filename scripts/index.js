@@ -6,6 +6,22 @@ const dataInitial = [
     {title: 'Listening', description: 'Practica escuchando oraciones para entrenar tu oido', src: 'imgs/listening.jpg', url: '/listening.html', color: 'purple'},
 ]
 
+const addInfoUser = (info) => {
+  console.log('Llegue aqui')
+  const infoUser = document.getElementById('info-user');
+  infoUser.innerHTML = `
+  <div class="flex items-center gap-5 ">
+  <div>
+      <p class="font-bold text-white">${info.name}</p>
+      <p class="font-bold text-white">score: ${info.score}</p>
+  </div>
+  <div
+      class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer">
+      <img src="imgs/logos/${info.img}" alt="Icon 1" class="rounded-full w-full h-full object-cover">
+  </div>
+</div>
+  `
+}
 
 const container = document.getElementById('container-cards');
 const modal = document.getElementById('modal');
@@ -41,9 +57,12 @@ if (localStorage.getItem("user")) {
   // Si la clave existe, muestra el valor en la consola
   const miDato = localStorage.getItem("user");
   modal.classList.add('hidden')
-  console.log( JSON.parse(miDato));
+  console.log(JSON.parse(miDato));
+  addInfoUser(JSON.parse(miDato));
+  document.getElementById('loading').classList.add('hidden');
 } else {
   // Si la clave no existe, muestra un mensaje de que no hay datos
+  document.getElementById('loading').classList.add('hidden');
   console.log("No hay datos en localStorage con la clave 'miDato'");
 }
 // modal
@@ -51,7 +70,7 @@ const radioButtons = document.querySelectorAll('input[name="team"]');
 const inputName = document.getElementById('input-name');
 
 
-const dataUser = {name: '', img: '', team: ''};
+const dataUser = {name: '', img: '', team: '', score: 0};
 function getImageSrc(element) {
   const elementosSeleccionados = document.querySelectorAll('.selected');
 
@@ -105,3 +124,4 @@ inputName.addEventListener('change', function(e) {
 // buttonUser.addEventListener('click', function() {
 //   sendData
 // })
+

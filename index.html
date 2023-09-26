@@ -9,15 +9,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="style/index.css" rel="stylesheet" />
     <script src="scripts/database.js" type="module" async></script>
-    <script src="scripts/index.js"  async></script>
-    
+    <script src="scripts/index.js" async></script>
+
 </head>
 
 <body>
     <!-- Utiliza clases de Tailwind CSS en tus elementos HTML -->
     <div class="h-screen flex flex-col  bg-gradient-to-t from-indigo-500 via-indigo-700 to-blue-900 overflow-hidden">
-        <header class="min-h-[20%] flex flex-col justify-center items-center">
-            <h1 class="text-3xl font-bold text-white">English for work</h1>
+        <header class="min-h-[20%] flex justify-center items-center flex-nowrap">
+            <div class="w-[80%] h-[100%] flex items-center justify-center">
+                <h1 class="text-3xl font-bold text-white text-center">English for work</h1>
+            </div>
+            <div class="w-[20%] h-[100%] flex justify-center items-center" id="info-user">
+
+                
+            </div>
             <!-- <p class="text-lg text-gray-900">roulette.</p> -->
         </header>
 
@@ -45,16 +51,16 @@
                     <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                         <div class="sm:flex sm:items-start">
                             <div class="h-[100%]">
-                            <div
-                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <svg class="h-7 w-7 text-black-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <!-- Cambiamos el path por el signo de admiración -->
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v3m0 4h.01M12 17h.01M12 2a9 9 0 110 18 9 9 0 010-18z" />
-                                </svg>
+                                <div
+                                    class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                                    <svg class="h-7 w-7 text-black-600" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <!-- Cambiamos el path por el signo de admiración -->
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 9v3m0 4h.01M12 17h.01M12 2a9 9 0 110 18 9 9 0 010-18z" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
                             <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left flex flex-col gap-5">
                                 <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Welcome!
                                 </h3>
@@ -68,21 +74,25 @@
                                     <label class="text-sm text-gray-500">Select your team:</label>
                                     <div class="flex gap-10">
                                         <div class="flex items-center mt-2">
-                                            <input type="radio" name="team" id="team1" value="Team 1" class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
+                                            <input type="radio" name="team" id="team1" value="Team 1"
+                                                class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
                                             <label for="team1" class="ml-2 cursor-pointer">Team 1</label>
                                         </div>
                                         <div class="flex items-center mt-2">
-                                            <input type="radio" name="team" id="team2" value="Team 2" class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
+                                            <input type="radio" name="team" id="team2" value="Team 2"
+                                                class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
                                             <label for="team2" class="ml-2 cursor-pointer">Team 2</label>
                                         </div>
                                     </div>
                                     <div class="flex gap-10">
                                         <div class="flex items-center mt-2">
-                                            <input type="radio" name="team" id="team3" value="Team 3" class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
+                                            <input type="radio" name="team" id="team3" value="Team 3"
+                                                class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
                                             <label for="team3" class="ml-2 cursor-pointer">Team 3</label>
                                         </div>
                                         <div class="flex items-center mt-2">
-                                            <input type="radio" name="team" id="team4" value="Team 4" class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
+                                            <input type="radio" name="team" id="team4" value="Team 4"
+                                                class="h-5 w-5 text-blue-500 border-gray-300 focus:ring-blue-500">
                                             <label for="team4" class="ml-2 cursor-pointer">Team 4</label>
                                         </div>
                                     </div>
@@ -90,40 +100,54 @@
                                 <div>
                                     <label class="text-sm text-gray-500">Select your icon:</label>
                                     <div class="flex gap-5">
-                                        <div  class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer" onclick="getImageSrc(this)">
+                                        <div class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer"
+                                            onclick="getImageSrc(this)">
                                             <!-- Puedes reemplazar la URL de la imagen aquí -->
-                                            <img src="imgs/logos/gallo.jpg" alt="Icon 1" class="rounded-full w-full h-full object-cover">
+                                            <img src="imgs/logos/gallo.jpg" alt="Icon 1"
+                                                class="rounded-full w-full h-full object-cover">
                                         </div>
-                                        <div  class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer" onclick="getImageSrc(this)">
+                                        <div class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer"
+                                            onclick="getImageSrc(this)">
                                             <!-- Puedes reemplazar la URL de la imagen aquí -->
-                                            <img src="imgs/logos/dog.jpg" alt="Icon 1" class="rounded-full w-full h-full object-cover">
+                                            <img src="imgs/logos/dog.jpg" alt="Icon 1"
+                                                class="rounded-full w-full h-full object-cover">
                                         </div>
-                                        <div  class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer" onclick="getImageSrc(this)">
+                                        <div class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer"
+                                            onclick="getImageSrc(this)">
                                             <!-- Puedes reemplazar la URL de la imagen aquí -->
-                                            <img src="imgs/logos/panda.jpg" alt="Icon 1" class="rounded-full w-full h-full object-cover">
+                                            <img src="imgs/logos/panda.jpg" alt="Icon 1"
+                                                class="rounded-full w-full h-full object-cover">
                                         </div>
-                                        <div  class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer" onclick="getImageSrc(this)">
+                                        <div class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer"
+                                            onclick="getImageSrc(this)">
                                             <!-- Puedes reemplazar la URL de la imagen aquí -->
-                                            <img src="imgs/logos/llama.jpg" alt="Icon 1" class="rounded-full w-full h-full object-cover">
+                                            <img src="imgs/logos/llama.jpg" alt="Icon 1"
+                                                class="rounded-full w-full h-full object-cover">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                         <button type="button" disabled id="button-user"
                             class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto disabled:bg-gray-500 disabled:cursor-not-allowed">
                             Aceptar</button>
-                        <button type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                        <a  href="/results.html"
+                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                            Results</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="loading" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-95 z-50 flex-col">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+        <!-- O un mensaje de "Cargando..." -->
+        <p class="text-white text-xl">Cargando...</p>
+      </div>
 </body>
 
 </html>

@@ -26,6 +26,10 @@ const question = [
     },
 ];
 
+if (!localStorage.getItem("user")) {
+    window.location.href = '/index.html';
+}
+
 const indiceAleatorio = Math.floor(Math.random() * question.length);
 const questionAleatoria = question[indiceAleatorio];
 
@@ -72,6 +76,15 @@ validated.addEventListener('click', () => {
     const botones = document.querySelectorAll('.list-validated');
     const buttonSelected = botones[selectedAnswer];
     if (buttonSelected.children[1].textContent === questionAleatoria.correctAnswer) {
+
+        const jsonString  = localStorage.getItem("user");
+        console.log(jsonString)
+        const miObjeto = JSON.parse(jsonString);
+        console.log('no paso aqui')
+        miObjeto.score += 10;
+        localStorage.setItem('user', JSON.stringify(miObjeto));
+        console.log(miObjeto);
+
         const verifyIcon = document.createElement('div');
         verifyIcon.classList.add('flex', 'justify-center', 'items-center', 'rounded-full', 'text-white', 'h-[25px]', 'w-[25px]', 'bg-green-500');
         verifyIcon.innerHTML = `

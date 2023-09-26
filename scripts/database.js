@@ -44,9 +44,10 @@ buttonUser.addEventListener('click', function() {
         username: dataUser.name,
         team: dataUser.team,
         img: dataUser.img,
-        score: 0
+        score: dataUser.score
     });
-    localStorage.setItem('user', JSON.stringify({name: dataUser.name, score: 0}))
+    localStorage.setItem('user', JSON.stringify({name: dataUser.name, score: dataUser.score, img: dataUser.img}))
+    addInfoUser(dataUser);
     modal.classList.add('hidden')
 
   })

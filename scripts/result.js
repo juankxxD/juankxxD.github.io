@@ -25,33 +25,39 @@ get(usersRef)
         if (snapshot.exists()) {
             userData = snapshot.val();
             const claves = Object.keys(userData);
+            
+            // Crear un array de usuarios a partir de los datos
+            const usuarios = claves.map((item) => userData[item]);
+            
+            // Ordenar el array de usuarios por score de mayor a menor
+            usuarios.sort((a, b) => b.score - a.score);
+            
             let codigoTable = '';
-            claves.forEach((item) => {
-                const data = userData[item];
-                console.log(data)
+            
+            // Crear el HTML de la tabla utilizando los datos ordenados
+            usuarios.forEach((data) => {
                 codigoTable += `
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-        <td class="px-6 py-4">
-            <div
-                class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer">
-                <img src="imgs/logos/${data.img}" alt="Icon 1" class="rounded-full w-full h-full object-cover">
-            </div>
-        </td>
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            ${data.username}
-        </th>
-        <td class="px-6 py-4">
-            ${data.team}
-        </td>
-        <td class="px-6 py-4">
-        ${data.score}
-        </td>
-    </tr>
-        `
-            })
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-6 py-4">
+                        <div class="bg-blue-500 text-white w-[60px] h-[60px] flex items-center justify-center rounded-full cursor-pointer">
+                            <img src="imgs/logos/${data.img}" alt="Icon 1" class="rounded-full w-full h-full object-cover">
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        ${data.username}
+                    </th>
+                    <td class="px-6 py-4">
+                        ${data.team}
+                    </td>
+                    <td class="px-6 py-4">
+                        ${data.score}
+                    </td>
+                </tr>
+                `;
+            });
+            
             tbody.innerHTML = codigoTable;
-
-            console.log(userData[claves[0]]);
+            
         } else {
             console.log('No se encontraron datos en "users".');
         }

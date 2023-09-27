@@ -120,8 +120,3 @@ inputName.addEventListener('change', function(e) {
   dataUser.name = e.target.value;
   validatedButton()
 })
-
-// buttonUser.addEventListener('click', function() {
-//   sendData
-// })
-

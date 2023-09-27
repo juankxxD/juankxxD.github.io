@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -50,4 +50,19 @@ buttonUser.addEventListener('click', function() {
     addInfoUser(dataUser);
     modal.classList.add('hidden')
 
+  })
+
+  function saveScoreDB(element) {
+    console.log('hola')
+  }
+
+  const buttonSave = document.getElementById('save-score').addEventListener('click', function() {
+    
+    const miDato = localStorage.getItem("user");
+    console.log(JSON.parse(miDato).name)
+    update(ref(db, 'users/' + JSON.parse(miDato).name), {
+        score: JSON.parse(miDato).score
+    });
+    localStorage.clear();
+    window.location.href = '/index.html';
   })

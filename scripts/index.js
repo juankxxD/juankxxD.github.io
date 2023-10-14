@@ -4,6 +4,7 @@ const dataInitial = [
     {title: 'Pronunciation', description: 'Practica la pronunciación de palabras y los sonidos del idioma de manera correcta y comprensible ', src: 'imgs/pronunciation.jpg', url: '/pronunciation.html', color: 'yellow'},
     {title: 'Vocabulary', description: 'Practica palabras en ingles en sus diferentes tiempos', src: 'imgs/vocabulary.jpg', url: '/vocabulary.html', color: 'green'},
     {title: 'Listening', description: 'Practica escuchando oraciones para entrenar tu oido', src: 'imgs/listening.jpg', url: '/listening.html', color: 'purple'},
+    {title: 'General Culture', description: 'Practica respondiendo preguntas generales', src: 'imgs/generalCulture.jpg', url: '/general.html', color: 'orange'},
 ]
 
 const addInfoUser = (info) => {
@@ -66,11 +67,10 @@ if (localStorage.getItem("user")) {
   console.log("No hay datos en localStorage con la clave 'miDato'");
 }
 // modal
-const radioButtons = document.querySelectorAll('input[name="team"]');
 const inputName = document.getElementById('input-name');
 
 
-const dataUser = {name: '', img: '', team: '', score: 0};
+const dataUser = {name: '', img: '', score: 0};
 function getImageSrc(element) {
   const elementosSeleccionados = document.querySelectorAll('.selected');
 
@@ -97,23 +97,13 @@ const ultimaParte = partes[partes.length - 1];
 
 const buttonUser = document.getElementById('button-user');
 const validatedButton = () => {
-  if(dataUser.img !== '' &&  dataUser.name !== '' && dataUser.team !== '') {
+  if(dataUser.img !== '' &&  dataUser.name !== '') {
     buttonUser.removeAttribute('disabled');
   } else {
     buttonUser.disabled = true;
   }
 }
 
-
-radioButtons.forEach((radioButton) => {
-  radioButton.addEventListener('change', function() {
-      // Verifica cuál radio button está seleccionado y obtén su valor
-      if (radioButton.checked) {
-        dataUser.team = radioButton.value;
-      }
-      validatedButton();
-  });
-});
 
 inputName.addEventListener('change', function(e) {
   console.log(e.target.value);

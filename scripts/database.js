@@ -37,12 +37,10 @@ get(userRef).then((snapshot) => {
 
 //         set(ref(db, 'users/juan'), {
 //     username: 'juan',
-//     team: '1',
 // });
 buttonUser.addEventListener('click', function() {
     set(ref(db, 'users/' + dataUser.name), {
         username: dataUser.name,
-        team: dataUser.team,
         img: dataUser.img,
         score: dataUser.score
     });

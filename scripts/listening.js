@@ -20,13 +20,15 @@ const questionAleatoria = question[indiceAleatorio];
 // Cargar el audio antes de mostrar la pregunta
 audioPlayer.src = questionAleatoria.srcAudio; // Asigna la ruta del audio al elemento de audio
 audioPlayer.load(); // Carga el audio
-
+let primeraCarga = false;
 audioPlayer.addEventListener('canplaythrough', function() {
     // El evento canplaythrough se dispara cuando el audio se ha cargado suficientemente
     // Ahora puedes mostrar la pregunta y opciones de respuesta
     const questionSelected = document.getElementById('question');
     questionSelected.textContent = questionAleatoria.question;
-
+    if(primeraCarga){
+        return;
+    }
     // Resto de tu código para mostrar las opciones de respuesta
     const list = document.getElementById('list-answer');
 const validated = document.getElementById('validated');
@@ -98,7 +100,7 @@ validated.addEventListener('click', (e) => {
     validated.disabled = true;
 })
 
-
+primeraCarga = true
 });
 
 const showValidatedAnswer = (isCorrect, node, score = 10) => {

@@ -23,16 +23,18 @@
                 <img src="imgs/ruleta.png" class="max-h-[90vh] " />
             </div>
             <div class="w-[70%] flex h-[100%]">
-                <div class="flex flex-col gap-10 w-[100%] items-center">
+                <div class="flex flex-col gap-10 w-[100%] items-center overflow-auto">
                     <h2 class="text-3xl font-bold text-white text-center">Listening</h2>
                     <p class="w-[100%] text-3xl  text-white  flex gap-5" id="clasify1">Answer the following question by
                         listening to the audio below</p>
-                    <audio id="audio-player" controls class="custom-audio" preload="auto">
-                        <source type="audio/mpeg" />
-                        Your browser does not support the audio element.
-                    </audio>
+                    <div>
+                        <audio id="audio-player" controls controlsList="nodownload" class="custom-audio" preload="auto">
+                            <source type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
                     <div id="question" class="w-[100%] text-3xl  text-white"></div>
-                    <div class="flex flex-wrap gap-10 w-[100%] pt-10 flex-col overflow-auto" id="container-cards">
+                    <div class="flex flex-wrap gap-10 w-[100%] pt-10 flex-col" id="container-cards">
                         <ul class="list-inside flex flex-col gap-10 items-center w-[100%] " id="list-answer">
 
                         </ul>

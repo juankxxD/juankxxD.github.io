@@ -60,6 +60,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                         transcriptionDiv.textContent = result;
                         if(result.split('.')[0].toLowerCase() === palabraAleatoria.toLowerCase()) {
                             console.log('Entre aqui')
+                            const jsonString = localStorage.getItem("user");
+                            const miObjeto = JSON.parse(jsonString);
+                             miObjeto.score += 10;
+                            localStorage.setItem('user', JSON.stringify(miObjeto));
                             verify.classList.remove('bg-red-500');
                             verify.classList.add('bg-green-500');
                             verify.innerHTML = `

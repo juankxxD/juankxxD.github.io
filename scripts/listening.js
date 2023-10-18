@@ -1,7 +1,7 @@
 const question = [
     {
         question: 'Where did the family vacation last year?',
-        srcAudio: 'listening/audio1.m4a',
+        srcAudio: 'listening/audio1.mp3',
         answers: ['A. Italy', 'B. France', 'C. Florida', 'D. California'],
         correctAnswer: 'Florida',
     },

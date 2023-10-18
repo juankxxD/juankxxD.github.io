@@ -42,6 +42,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             };
 
             mediaRecorder.onstop = function () {
+                console.log('Entre a esta funcion de onstop')
                 const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
                 const audioUrl = URL.createObjectURL(audioBlob);
 
@@ -53,6 +54,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 // Mostrar el texto reconocido en el elemento "transcription"
                 try {
                     const recognition = new webkitSpeechRecognition();
+                    recognition.lang = 'en-US';
                     recognition.onresult = function (event) {
                         console.log('estoy aqui con: ', event)
                         const result = event.results[0][0].transcript;

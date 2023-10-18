@@ -1,4 +1,8 @@
-const words = ['My favorite color is red', 'My favorite color is blue', 'My favorite color is green', 'My favorite color is white'];
+const words = ['NETWORK', 'GADGETS', 'MICROPHONE', 'HEADPHONES', 'SPEAK', 'BOOT',
+    'COMMUNICATE', 'COMPUTING', 'LEARNING', 'MAINTENANCE', 'KNOWLEDGE', 'RESEARCH',
+    'SKILLS', 'WIRELESS', 'WIDESCREEN', 'INNOVATION', 'BROWSERS', 'CULTURES',
+    'CUSTOMIZE', 'BACKUP', 'BANNER', 'CLIPBOARD'
+];
 
 const indiceAleatorio = Math.floor(Math.random() * words.length);
 
@@ -50,7 +54,9 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 try {
                     const recognition = new webkitSpeechRecognition();
                     recognition.onresult = function (event) {
+                        console.log('estoy aqui con: ', event)
                         const result = event.results[0][0].transcript;
+                        console.log(result)
                         transcriptionDiv.textContent = result;
                         if(result.split('.')[0].toLowerCase() === palabraAleatoria.toLowerCase()) {
                             console.log('Entre aqui')

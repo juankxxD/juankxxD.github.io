@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>English for Work</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style/index.css" rel="stylesheet" />
+    <script src="scripts/prueba.js" async></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="imgs/ruleta.png">
+    <style>
+        .draggable {
+            cursor: grab;
+        }
+
+        .droppable {
+            border: 2px dashed #333;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="h-screen flex flex-col  bg-gradient-to-t from-indigo-500 via-indigo-700 to-blue-900 overflow-hidden">
+        <header class="min-h-[20%] flex flex-col justify-center items-center">
+            <h1 class="text-3xl font-bold text-white">English for work</h1>
+            <!-- <p class="text-lg text-gray-900">roulette.</p> -->
+        </header>
+
+        <section class="flex w-screen h-[70%] flex-grow items-center">
+            <div class="w-[30%] h-[90%] flex items-center">
+                <img src="imgs/ruleta.png" class="max-h-[90vh] " />
+            </div>
+            <div class="w-[70%] flex h-[100%]">
+                <div class="flex flex-col gap-10 w-[100%] items-center">
+                    <h2 class="text-3xl font-bold text-white text-center">Grammar</h2>
+                    <div id="question" class="w-[100%] text-3xl  text-white">
+                        Order the following words to create a sentence.
+                    </div>
+                    <div class="flex flex-wrap gap-10 overflow-auto w-[100%] pt-10 flex-col" id="container-cards">
+                        <ul class="list-inside flex flex-col gap-10 items-center w-[100%] hidden" id="list-answer">
+
+                        </ul>
+                        <div id="list-words" class="flex gap-5 justify-center">
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]">
+                                <div class="draggable bg-blue-300 p-4 rounded-md" draggable="true">mi</div>
+                            </div>
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]">
+                                <div class="draggable bg-blue-300 p-4 rounded-md" draggable="true">nombre</div>
+                            </div>
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]">
+                                <div class="draggable bg-blue-300 p-4 rounded-md" draggable="true">es</div>
+                            </div>
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]">
+                                <div class="draggable bg-blue-300 p-4 rounded-md" draggable="true">Juan</div>
+                            </div>
+                        </div>
+                        <div id="place-words" class="flex gap-5 justify-center">
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]"></div>
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]"></div>
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]"></div>
+                            <div class="droppable bg-blue-100 rounded-md min-w-[50px]"></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-10 h-[3rem]">
+                        <button disabled id="validated"
+                            class="rounded-full h-[50px] h-[100%] text-center w-[10rem] bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed">
+                            Validar
+                        </button>
+                        <a href="/index.html"
+                            class="text-center rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-semibold flex justify-center items-center rounded inline-block w-[200px]">
+                            Back
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+    </div>
+    </section>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+#audioElement {
+
+    /* Estilos para los controles de audio */
+    &::-webkit-media-controls {
+        background-color: #4299E1;
+        /* Fondo de los controles (para navegadores basados en WebKit) */
+    }
+
+    &::-webkit-media-controls-play-button,
+    &::-webkit-media-controls-pause-button {
+        color: #fff;
+        /* Color de los botones de reproducción y pausa (para navegadores basados en WebKit) */
+    }
+
+    &::-webkit-media-controls-current-time-display,
+    &::-webkit-media-controls-time-remaining-display {
+        color: #333;
+        /* Color del tiempo de reproducción (para navegadores basados en WebKit) */
+    }
+
+    /* Estilos para los controles generales (botones, barras de progreso, etc.) */
+    &::-webkit-media-controls-enclosure {
+        background-color: transparent;
+        /* Fondo de los controles generales (para navegadores basados en WebKit) */
+    }
+}

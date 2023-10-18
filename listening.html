@@ -24,29 +24,36 @@
             </div>
             <div class="w-[70%] flex h-[100%]">
                 <div class="flex flex-col gap-10 w-[100%] items-center">
-                    <h2 class="text-3xl font-bold text-white text-center">listening (in construction)</h2>
+                    <h2 class="text-3xl font-bold text-white text-center">Listening</h2>
+                    <p class="w-[100%] text-3xl  text-white  flex gap-5" id="clasify1">Answer the following question by
+                        listening to the audio below</p>
+                    <audio controls class="custom-audio">
+                        <source src="audio.mp3" type="audio/mpeg" />
+                        Your browser does not support the audio element.
+                    </audio>
                     <div id="question" class="w-[100%] text-3xl  text-white"></div>
-                    <div class="flex flex-wrap gap-10 overflow-auto w-[100%] pt-10 flex-col"
-                        id="container-cards">
+                    <div class="flex flex-wrap gap-10 w-[100%] pt-10 flex-col overflow-auto" id="container-cards">
                         <ul class="list-inside flex flex-col gap-10 items-center w-[100%] " id="list-answer">
-                            
-                          </ul>
 
-                        </div>
-                        <div class="flex gap-10 h-[3rem]">
-                            <button disabled id="validated" class="rounded-full h-[50px] h-[100%] text-center w-[10rem] bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed">
-                                Validar
-                            </button>
-                        <a href="/index.html" class="text-center rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-semibold flex justify-center items-center rounded inline-block w-[200px]"  >
-                            Back
-                        </a>
-                        </div>
-                        
+                        </ul>
 
                     </div>
+                    <div class="flex gap-10 h-[3rem]">
+                        <button disabled id="validated"
+                            class="rounded-full h-[50px] h-[100%] text-center w-[10rem] bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:bg-gray-500 disabled:cursor-not-allowed">
+                            Validar
+                        </button>
+                        <a href="/index.html"
+                            class="text-center rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-semibold flex justify-center items-center rounded inline-block w-[200px]">
+                            Back
+                        </a>
+                    </div>
+
+
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
     </div>
 
 </body>

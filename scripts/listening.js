@@ -11,18 +11,24 @@ if (!localStorage.getItem("user")) {
     window.location.href = '/index.html';
 }
 
-const source = document.querySelector('source');
 
+// const source = document.querySelector('source');
+const audioPlayer = document.querySelector('#audio-player'); // Agrega un elemento de audio en tu HTML con el id 'audio-player'
 const indiceAleatorio = Math.floor(Math.random() * question.length);
 const questionAleatoria = question[indiceAleatorio];
 
+// Cargar el audio antes de mostrar la pregunta
+audioPlayer.src = questionAleatoria.srcAudio; // Asigna la ruta del audio al elemento de audio
+audioPlayer.load(); // Carga el audio
 
-source.src = questionAleatoria.srcAudio;
+audioPlayer.addEventListener('canplaythrough', function() {
+    // El evento canplaythrough se dispara cuando el audio se ha cargado suficientemente
+    // Ahora puedes mostrar la pregunta y opciones de respuesta
+    const questionSelected = document.getElementById('question');
+    questionSelected.textContent = questionAleatoria.question;
 
-const questionSelected = document.getElementById('question');
-
-questionSelected.textContent = questionAleatoria.question;
-const list = document.getElementById('list-answer');
+    // Resto de tu código para mostrar las opciones de respuesta
+    const list = document.getElementById('list-answer');
 const validated = document.getElementById('validated');
 let selectedAnswer;
 
@@ -91,6 +97,9 @@ validated.addEventListener('click', (e) => {
     console.log(e);
     validated.disabled = true;
 })
+
+
+});
 
 const showValidatedAnswer = (isCorrect, node, score = 10) => {
     console.log(parseFloat(score));

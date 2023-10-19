@@ -1,5 +1,9 @@
 const words = ['cat', 'spend', 'house', 'cousin'];
 
+if (!localStorage.getItem("user")) {
+    window.location.href = '/index.html';
+}
+
 const indiceAleatorio = Math.floor(Math.random() * words.length);
 const palabraAleatoria = words[indiceAleatorio];
 

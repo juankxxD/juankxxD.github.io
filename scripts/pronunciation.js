@@ -4,6 +4,10 @@ const words = ['NETWORK', 'GADGETS', 'MICROPHONE', 'HEADPHONES', 'SPEAK', 'BOOT'
     'CUSTOMIZE', 'BACKUP', 'BANNER', 'CLIPBOARD'
 ];
 
+if (!localStorage.getItem("user")) {
+    window.location.href = '/index.html';
+}
+
 const indiceAleatorio = Math.floor(Math.random() * words.length);
 const palabraAleatoria = words[indiceAleatorio];
 

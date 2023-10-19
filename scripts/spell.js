@@ -56,7 +56,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             recognition.continuous = true;
             recognition.onresult = function (event) {
                 console.log('estoy aqui con: ', event);
-                const result = event.results[0][0].transcript;
+                let result = event.results[0][0].transcript;
                 console.log(result);
                 result = result.replaceAll(' ', '');
                 transcriptionDiv.textContent = result;

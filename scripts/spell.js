@@ -58,6 +58,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 console.log('estoy aqui con: ', event);
                 const result = event.results[0][0].transcript;
                 console.log(result);
+                result = result.replaceAll(' ', '');
                 transcriptionDiv.textContent = result;
                 if (result.split('.')[0].toLowerCase() === palabraAleatoria.toLowerCase()) {
                     console.log('Entre aqui');

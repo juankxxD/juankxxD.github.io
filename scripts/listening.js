@@ -1,9 +1,9 @@
 const question = [
     {
-        question: 'Where did the family vacation last year?',
+        question: 'How many members of the family are there?',
         srcAudio: 'listening/audio1.mp3',
-        answers: ['A. Italy', 'B. France', 'C. Florida', 'D. California'],
-        correctAnswer: 'Florida',
+        answers: ['A. One', 'B. Four', 'C. Five', 'D. Seven'],
+        correctAnswer: 'Four',
     },
 ]
 

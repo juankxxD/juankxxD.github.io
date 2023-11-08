@@ -52,11 +52,11 @@ questionAleatoria.answers.forEach((item, index) => {
     button.classList.add('w-[50%]', 'text-start', 'rounded-xl', 'pl-10', 'bg-gray-100', 'button-validated')
     spanNumber.textContent = optionNumber + '.';
     button.textContent = optionValue;
-
+    selectedAnswer = 'primero';
     button.addEventListener('click', () => {
         // Limpiar la selección anterior
         console.log(selectedAnswer);
-        if (selectedAnswer !== undefined) {
+        if (selectedAnswer !== 'primero' && validated.disabled) {
             return;
         }
         validated.removeAttribute('disabled');

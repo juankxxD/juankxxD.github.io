@@ -282,6 +282,7 @@ if (questionAleatoria.questionType === 'order') {
     })
 
 } else {
+    selectedAnswer = 'primero';
     if (questionAleatoria.questionType === 'image') {
         image.children[0].src = questionAleatoria.srcImge;
         image.classList.remove('hidden');
@@ -303,7 +304,7 @@ if (questionAleatoria.questionType === 'order') {
         button.addEventListener('click', () => {
             // Limpiar la selección anterior
             console.log(selectedAnswer);
-            if (selectedAnswer !== undefined) {
+            if (selectedAnswer !== 'primero' && validated.disabled) {
                 return;
             }
             validated.removeAttribute('disabled');

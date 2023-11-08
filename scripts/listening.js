@@ -115,7 +115,7 @@ const showValidatedAnswer = (isCorrect, node, score = 10) => {
         const jsonString = localStorage.getItem("user");
         const miObjeto = JSON.parse(jsonString);
         if (score !== 10) {
-            miObjeto.score = parseFloat(miObjeto.score + score).toFixed(2);
+            miObjeto.score = score;
         } else miObjeto.score += 10;
         localStorage.setItem('user', JSON.stringify(miObjeto));
         const verifyIcon = document.createElement('div');

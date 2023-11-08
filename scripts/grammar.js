@@ -121,7 +121,7 @@ if (questionAleatoria.questionType === 'c/i') {
             document.querySelectorAll('li').forEach((itemLi, index) => {
                 if (index === i) {
                     if (res === questionAleatoria.correctAnswer[i]) {
-                        showValidatedAnswer(true, itemLi, (10 / questionAleatoria.correctAnswer.length).toFixed(2))
+                        showValidatedAnswer(true, itemLi, 3)
                     } else {
                         showValidatedAnswer(false, itemLi)
                     }
@@ -291,6 +291,7 @@ if (questionAleatoria.questionType === 'c/i') {
 }
 
 else {
+    selectedAnswer = 'primero';
     if(questionAleatoria.otherText) {
         const clasify = document.getElementById('clasify1');
         clasify.textContent = questionAleatoria.otherText
@@ -311,7 +312,8 @@ else {
         button.addEventListener('click', () => {
             // Limpiar la selección anterior
             console.log(selectedAnswer);
-            if (selectedAnswer !== undefined) {
+            console.log(validated.disabled)
+            if (selectedAnswer !== 'primero' && validated.disabled) {
                 return;
             }
             validated.removeAttribute('disabled');

@@ -6,7 +6,7 @@ const question = [
         correctAnswer: 'Seven',
     },
     {
-        question: 'Where did the family vacation last year?',
+        question: 'Where did the family go on vacation last year?',
         srcAudio: 'listening/audio2.m4a',
         answers: ['A. Italy', 'B. France', 'C. Florida', 'D. California'],
         correctAnswer: 'Florida',
